@@ -13,8 +13,9 @@ using namespace std;
 #define dbg(p)
 #endif
 
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
+
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
 typedef long long ll;
 typedef double dol;
 #define pi acos(-1)
@@ -22,26 +23,23 @@ typedef double dol;
 
 void samsolveit()
 {
-    int nc, k;
-    cin >> nc >> k;
+    int nc;
+    cin >> nc;
 
-    vector<int> ar(nc);
-    set<int> st;
-    for (int i = 0; i < nc; i++)
-    {
-        int x;
-        cin >> x;
-        st.insert(x);
-    }
-int c=0;
-for(auto &a:st){
-    if(c!=a){
-        break;
-    }
-    c++;
+string s;
+cin>>s;
+map<char,int>mp;
+for(int i=0;i<nc;i++){
+    mp[s[i]]++;
 }
-cout<<min(c,k-1)<<"\n";
-
+for(auto &m:mp){
+    if(m.second>=2){
+        YES;
+        return;
+    }
+}
+NO;
+       
 }
 
 /*
@@ -51,9 +49,9 @@ int32_t main()
 {
     opscode();
 
-    // #ifndef ONLINE_JUDGE
-    //     freopen("Error.txt", "w", stderr);
-    // #endif
+//#ifndef ONLINE_JUDGE
+//    freopen("Error.txt", "w", stderr);
+//#endif
 
     int tc;
     cin >> tc;

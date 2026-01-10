@@ -22,26 +22,19 @@ typedef double dol;
 
 void samsolveit()
 {
-    int nc, k;
-    cin >> nc >> k;
-
-    vector<int> ar(nc);
-    set<int> st;
-    for (int i = 0; i < nc; i++)
-    {
-        int x;
-        cin >> x;
-        st.insert(x);
-    }
-int c=0;
-for(auto &a:st){
-    if(c!=a){
-        break;
-    }
-    c++;
-}
-cout<<min(c,k-1)<<"\n";
-
+    int a, b;
+    cin >> a >> b;
+  
+        // if (!a &&b){
+        //     cout<<"Bob\n";
+        //     return;
+        // }
+    
+     if(a%2){
+         cout << "Alice\n";
+        }
+        else 
+        cout<<"Bob\n";
 }
 
 /*
