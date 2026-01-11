@@ -25,10 +25,7 @@ void samsolveit()
     int a, b;
     cin >> a >> b;
   
-        // if (!a &&b){
-        //     cout<<"Bob\n";
-        //     return;
-        // }
+
     
      if(a%2){
          cout << "Alice\n";

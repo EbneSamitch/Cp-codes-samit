@@ -25,7 +25,7 @@ void samsolveit()
     int nc;
     cin >> nc;
 
-    vector<int> ar(nc);
+    vector<int> ar(nc); 
     map<int, int> a;
 
     for (int i = 0; i < nc; i++)

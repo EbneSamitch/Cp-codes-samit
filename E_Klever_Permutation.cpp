@@ -26,14 +26,19 @@ void samsolveit()
     cin >> nc >> k;
 
     vector<int> ar(nc);
-int l=1,r=nc;
-for(int i=0;i<k;i++){
-    for(int j=i;j<nc;j+=k){
-        if(i%2){
-            ar[j]=r--;
-        }else ar[j]=l++;
+    int l = 1, r = nc;
+    for (int i = 0; i < k; i++)
+    {
+        for (int j = i; j < nc; j += k)
+        {
+            if (i % 2)
+            {
+                ar[j] = r--;
+            }
+            else
+                ar[j] = l++;
+        }
     }
-}
     for (int n = 0; n < nc; n++)
     {
         // cout<<n<<" ";

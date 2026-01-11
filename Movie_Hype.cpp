@@ -40,7 +40,7 @@ br[i-1]=max(ar[i],ar[i-1]);
     for(int i=0;i<nc;i++){
         mx=min(br[i],mx);
     }
-    cout<<mx<<"\n"
+    cout<<mx<<"\n";
        
 }
 

@@ -73,7 +73,7 @@ void samsolveit()
                 {
                     continue;
                 }
-                mx = max(mx, (arr[i].first+brr[j].first + crr[k].first));
+                mx = max(mx, (arr[i].first + brr[j].first + crr[k].first));
             }
         }
     }

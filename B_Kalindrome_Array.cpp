@@ -32,57 +32,62 @@ void samsolveit()
         cin >> ar[i];
         mp[ar[i]]++;
     }
-    int l=0,r=nc-1;
+    int l = 0, r = nc - 1;
 
-    int f=0;
-    int a=0,b=0;
-for(    int i=0;i<nc;i++){
-    if(ar[i]!=ar[nc-1-i]){
-        a=ar[i],b=ar[nc-1-i];
-        break;
+    int f = 0;
+    int a = 0, b = 0;
+    for (int i = 0; i < nc; i++)
+    {
+        if (ar[i] != ar[nc - 1 - i])
+        {
+            a = ar[i], b = ar[nc - 1 - i];
+            break;
+        }
     }
-}
-        while (l < r)
-        {
-            while(ar[l] == a)
-                l++;
-            while (ar[r] == a)
-                r--;
-                if(l>=r)break;
-            if (ar[l] != ar[r])
-            {
-                f = 1;
-                break;
-            }
+    while (l < r)
+    {
+        while (ar[l] == a)
             l++;
+        while (ar[r] == a)
             r--;
-        }
-        if(!f){
-            YES;
-            return;
-        }
-        f=0,l=0,r=nc-1;
-                while (l < r)
+        if (l >= r)
+            break;
+        if (ar[l] != ar[r])
         {
-            while(ar[l] == b)
-                l++;
-            while (ar[r] == b)
-                r--;
-                if(l>=r)break;
-            if (ar[l] != ar[r])
-            {
-                f = 1;
-                break;
-            }
+            f = 1;
+            break;
+        }
+        l++;
+        r--;
+    }
+    if (!f)
+    {
+        YES;
+        return;
+    }
+    f = 0, l = 0, r = nc - 1;
+    while (l < r)
+    {
+        while (ar[l] == b)
             l++;
+        while (ar[r] == b)
             r--;
+        if (l >= r)
+            break;
+        if (ar[l] != ar[r])
+        {
+            f = 1;
+            break;
         }
-        if(!f){
-            YES;
-            return;
-        }
-        NO;
-
+        l++;
+        r--;
+    }
+    if (!f)
+    {
+        YES;
+        return;
+    }
+    NO;
 }
 
 /*
