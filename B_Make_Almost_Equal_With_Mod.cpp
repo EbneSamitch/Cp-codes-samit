@@ -58,16 +58,16 @@ void samsolveit()
     for (int i = 0; i < nc; i++)
     {
         cin >> ar[i];
-        if (ar[i] % 2)
-            o.push_back(ar[i]);
-        else
-            e.push_back(ar[i]);
+        // if (ar[i] % 2)
+        //     o.push_back(ar[i]);
+        // else
+        //     e.push_back(ar[i]);
     }
-    if (o.size() && e.size())
-    {
-        cout << "2\n";
-        return;
-    }
+    // if (o.size() && e.size())
+    // {
+    //     cout << "2\n";
+    //     return;
+    // }
     // int m = 1e4 + 1;
     // set<int> st;
     // for (int i = 1; i < m; i++)
@@ -89,13 +89,12 @@ void samsolveit()
     int a = 2;
     while (a <= 1e18)
     {
-        a *= 2;
         set<int> st;
         for (int i = 0; i < nc; i++)
         {
             st.insert(ar[i] % a);
             if (st.size() > 2)
-                break;
+            break;
         }
         if (st.size() == 2)
         {
@@ -103,6 +102,7 @@ void samsolveit()
             return;
         }
         st.clear();
+        a *= 2;
     }
 }
 
