@@ -35,16 +35,7 @@ void samsolveit()
         }
         // cout<<"\n";
     }
-    // vector<vector<int>> ar(mc, vector<int>(nc));
-    // for (int i = 0; i < mc; i++)
-    // {
-    //     for (int j = 0; j < nc; j++)
-    //     {
-    //         ar[i][j] = ar[j][i];
-    //         // cout << ar[i][j] << " ";
-    //     }
-    //     // cout << "\n";
-    // }
+    
     for (int i = 0; i < mc; i++)
     sort(ar[i].begin(), ar[i].end());
     int s = 0;

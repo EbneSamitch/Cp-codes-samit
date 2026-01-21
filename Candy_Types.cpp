@@ -26,41 +26,25 @@ void samsolveit()
     cin >> nc;
 
     vector<int> ar(nc);
-    int z = 0;
+    map<int, int> mp;
     for (int i = 0; i < nc; i++)
     {
         cin >> ar[i];
-        if (!ar[i])
-            z++;
+        mp[ar[i]]++;
     }
-    if (z == 0 || z == nc)
-    {
-        NO;
-        return;
-    }
-    if(z==1){
-        YES;
-        return;
-    }
-    sort(ar.begin(), ar.end());
-
     int mx = 0;
-    for (int i = 1; i < nc; i++)
+    for (auto &it : mp)
     {
-        if (ar[i] == mx)
+        mx = max(mx, it.second);
+    }
+    for (auto &it : mp)
+    {
+        if (it.second == mx)
         {
-            mx++;
+            cout << it.first << "\n";
+            return;
         }
-        else if(ar[i] > mx)
-            break;
     }
-
-    if (mx == 1)
-    {
-        NO;
-    }
-    else
-        YES;
 }
 
 /*

@@ -22,45 +22,27 @@ typedef double dol;
 
 void samsolveit()
 {
-    int nc;
-    cin >> nc;
+    int nc, mc;
+    cin >> nc >> mc;
 
-    vector<int> ar(nc);
-    int z = 0;
+    vector<int> ar(nc), br(mc);
     for (int i = 0; i < nc; i++)
     {
         cin >> ar[i];
-        if (!ar[i])
-            z++;
     }
-    if (z == 0 || z == nc)
+    for (int i = 0; i < mc; i++)
     {
-        NO;
-        return;
+        cin >> br[i];
     }
-    if(z==1){
-        YES;
-        return;
-    }
-    sort(ar.begin(), ar.end());
+    // sort(ar.begin(), ar.end());
+    sort(br.begin(), br.end());
 
-    int mx = 0;
-    for (int i = 1; i < nc; i++)
+    int ans = 0;
+    for (int i = 0; i < nc; i++)
     {
-        if (ar[i] == mx)
-        {
-            mx++;
-        }
-        else if(ar[i] > mx)
-            break;
+        ans += (lower_bound(br.begin(), br.end(), ar[i]) - br.begin());
     }
-
-    if (mx == 1)
-    {
-        NO;
-    }
-    else
-        YES;
+    cout << ans << "\n";
 }
 
 /*

@@ -25,42 +25,36 @@ void samsolveit()
     int nc;
     cin >> nc;
 
-    vector<int> ar(nc);
-    int z = 0;
-    for (int i = 0; i < nc; i++)
-    {
-        cin >> ar[i];
-        if (!ar[i])
-            z++;
+    vector<int> ar(nc), cr(nc);
+    for(int i=0;i<nc;i++){
+        cin>>ar[i];
+        cr[i]=ar[i];
     }
-    if (z == 0 || z == nc)
-    {
-        NO;
-        return;
+   int br[nc+1][nc+1];
+for(int i=0;i<=nc;i++){
+    for(int j=0;j<=nc;j++){
+        br[i][j]=-1;
     }
-    if(z==1){
-        YES;
-        return;
-    }
-    sort(ar.begin(), ar.end());
+   }
+int mx=0;
+   br[0][0]=0;  
+   for(int i=0;i<nc;i++){
+    for(int j=0;j<=nc;j++){
+        if(br[i][j]!=-1) {
 
-    int mx = 0;
-    for (int i = 1; i < nc; i++)
-    {
-        if (ar[i] == mx)
-        {
-            mx++;
+            int pos=min(j+1,2ll);
+            for(int k=0;k<pos+1;k++){
+                br[i+1][j+1-k]=max(br[i+1][j+1-k],(br[i][j]+(k*ar[i])));
+            }
         }
-        else if(ar[i] > mx)
-            break;
     }
+   }
 
-    if (mx == 1)
-    {
-        NO;
-    }
-    else
-        YES;
+ for (int i = 0; i <=nc; i++){
+
+ mx = max(mx, br[nc][i]);
+ }
+        cout << mx << "\n";
 }
 
 /*

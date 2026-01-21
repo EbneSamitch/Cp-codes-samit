@@ -25,42 +25,33 @@ void samsolveit()
     int nc;
     cin >> nc;
 
-    vector<int> ar(nc);
-    int z = 0;
+    vector<int> ar(nc), cr(nc);
+    int in = 0;
     for (int i = 0; i < nc; i++)
     {
         cin >> ar[i];
-        if (!ar[i])
-            z++;
-    }
-    if (z == 0 || z == nc)
-    {
-        NO;
-        return;
-    }
-    if(z==1){
-        YES;
-        return;
-    }
-    sort(ar.begin(), ar.end());
-
-    int mx = 0;
-    for (int i = 1; i < nc; i++)
-    {
-        if (ar[i] == mx)
+        cr[i] = ar[i];
+        if (ar[i] == 1)
         {
-            mx++;
+            in = i;
         }
-        else if(ar[i] > mx)
-            break;
     }
-
-    if (mx == 1)
+    int cst = 0;
+    sort(cr.begin(), cr.end());
+    if(cr==ar){
+        cout<<0<<"\n";
+        return;
+    }   
+    int c = 0;
+    for (int i = 0; i < nc; i++)
     {
-        NO;
+        if (ar[i] != cr[i])
+        {
+            c = ar[i];
+        }
     }
-    else
-        YES;
+    cst += c;
+    cout << cst << "\n";
 }
 
 /*
