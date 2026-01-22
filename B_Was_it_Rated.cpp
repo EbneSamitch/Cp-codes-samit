@@ -27,10 +27,10 @@ void samsolveit()
     cin >> nc;
 
 if(nc==15 || nc==20 || nc==21){
-    YES;
+    NO;
 }
 else{
-    NO;
+    YES;
        
 }
 }
