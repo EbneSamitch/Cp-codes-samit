@@ -13,8 +13,9 @@ using namespace std;
 #define dbg(p)
 #endif
 
-#define YES cout << "YES\n"
-#define NO cout << "NO\n"
+
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
 typedef long long ll;
 typedef double dol;
 #define pi acos(-1)
@@ -25,20 +26,26 @@ void samsolveit()
     int nc;
     cin >> nc;
 
-    vector<int> ar(nc);
-    int a = nc, b = 1, xorr = 1;
-    for (int i = nc - 1; i >= 0; i--)
+    vector<int> ar(nc+2);
+    for (int i = 1; i <= nc; i++)
     {
-        if (xorr)
-            ar[i] = a--;
-        else
-            ar[i] = b++;
-        xorr ^= 1;
+        cin >> ar[i];
     }
+       
+    int cnt = 0;
+    for(int i = 1; i < nc; i++){
+        if(i+2 <= nc && ar[i]+ar[i+1] == 7 || ar[i] == ar[i+1]) {
+            if(ar[i+1] + ar[i+2] == 7 || ar[i+1] == ar[i+2]){
+                cnt++;
+                i++;
+            }
+            else cnt++;
+        }
+        else if(ar[i]+ar[i+1] == 7 || ar[i] == ar[i+1]) cnt++;
+ 
+    }
+    cout << cnt << '\n';
 
-    for (auto &i : ar)
-        cout << i << " ";
-    cout << "\n";
 }
 
 /*
@@ -48,9 +55,9 @@ int32_t main()
 {
     opscode();
 
-    // #ifndef ONLINE_JUDGE
-    //     freopen("Error.txt", "w", stderr);
-    // #endif
+//#ifndef ONLINE_JUDGE
+//    freopen("Error.txt", "w", stderr);
+//#endif
 
     int tc;
     cin >> tc;

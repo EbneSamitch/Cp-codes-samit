@@ -24,21 +24,28 @@ void samsolveit()
 {
     string s;
     cin >> s;
-
-    int f = 1;
-    for (int i = 2; i < s.size(); i++)
+    int nc = s.size();
+    int n = stoll(s);
+    int mx = 9 * nc;
+    int cnt = 0;
+    map<int,int>mp;
+    for (int i = 0; i <= mx+1; i++)
     {
-        if ((26 * 3 + (s[i - 1] - 'A') + (s[i - 2] - 'A')) % 26 == s[i] - 'A')
-            continue;
-        else
-            f = 0;
+        string p = to_string(i + n);
+        int nn = stoll(p);
+        for(int j=0;j<p.size();j++){
+            mp[nn]+=(p[j]-'0');
+        }
+       
     }
-
-    if (f)
-        YES;
-    else
-        NO;
+    for(auto &i:mp){
+        if(i.first-n==i.second){
+            cnt++;
+        }
+    }
         
+    
+    cout << cnt << "\n";
 }
 
 /*
@@ -52,10 +59,10 @@ int32_t main()
     //     freopen("Error.txt", "w", stderr);
     // #endif
 
-    // int tc;
-    // cin >> tc;
+    int tc;
+    cin >> tc;
 
-    // while (tc--)
+    while (tc--)
     {
         samsolveit();
     }

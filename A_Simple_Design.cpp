@@ -20,25 +20,20 @@ typedef double dol;
 #define pi acos(-1)
 #define int long long
 
+int f(int x)
+{
+    return x ? f(x / 10) + x % 10 : 0;
+}
 void samsolveit()
 {
-    string s;
-    cin >> s;
+    int a, b;
+    cin >> a >> b;
 
-    int f = 1;
-    for (int i = 2; i < s.size(); i++)
+    while (f(a) % b)
     {
-        if ((26 * 3 + (s[i - 1] - 'A') + (s[i - 2] - 'A')) % 26 == s[i] - 'A')
-            continue;
-        else
-            f = 0;
+        a++;
     }
-
-    if (f)
-        YES;
-    else
-        NO;
-        
+    cout << a << "\n";
 }
 
 /*
@@ -52,10 +47,10 @@ int32_t main()
     //     freopen("Error.txt", "w", stderr);
     // #endif
 
-    // int tc;
-    // cin >> tc;
+    int tc;
+    cin >> tc;
 
-    // while (tc--)
+    while (tc--)
     {
         samsolveit();
     }

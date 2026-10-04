@@ -22,23 +22,22 @@ typedef double dol;
 
 void samsolveit()
 {
+    int nc;
+    cin >> nc;
+
     string s;
     cin >> s;
-
-    int f = 1;
-    for (int i = 2; i < s.size(); i++)
+    char z = '0';
+    int ans = 0;
+    for (auto &it : s)
     {
-        if ((26 * 3 + (s[i - 1] - 'A') + (s[i - 2] - 'A')) % 26 == s[i] - 'A')
-            continue;
-        else
-            f = 0;
+        if (it != z)
+        {
+            ans++;
+            z = '0' + '1' - z;
+        }
     }
-
-    if (f)
-        YES;
-    else
-        NO;
-        
+    cout << ans << "\n";
 }
 
 /*
@@ -52,10 +51,10 @@ int32_t main()
     //     freopen("Error.txt", "w", stderr);
     // #endif
 
-    // int tc;
-    // cin >> tc;
+    int tc;
+    cin >> tc;
 
-    // while (tc--)
+    while (tc--)
     {
         samsolveit();
     }
